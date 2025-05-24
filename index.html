@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Devansh Singh - Portfolio</title>
+<style>
+  /* Reset */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: radial-gradient(circle at top left, #e6f0ff, #cce0ff);
+    color: #223344;
+    line-height: 1.5;
+  }
+  a {
+    color: #3a67d8;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  a:hover, a:focus {
+    color: #2548a1;
+    text-decoration: underline;
+    outline: none;
+  }
+  .container {
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto 3rem;
+    padding: 1rem 0;
+  }
+  header {
+    background: #3a67d8;
+    color: white;
+    text-align: center;
+    padding: 3.5rem 1rem 2.5rem;
+    border-bottom-left-radius: 90px;
+    border-bottom-right-radius: 90px;
+    box-shadow: 0 12px 35px rgba(58, 103, 216, 0.45);
+  }
+  header h1 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 3.8rem;
+    margin: 0;
+    letter-spacing: 0.1em;
+    text-shadow: 2px 2px 4px #1b387a88;
+  }
+  header p {
+    font-size: 1.35rem;
+    margin: 0.5rem 0 0;
+    font-style: italic;
+    font-weight: 500;
+    text-shadow: 1px 1px 3px #2548aeea;
+  }
+
+  /* Profile Section */
+  #profile {
+    background: white;
+    margin: -70px auto 2rem;
+    padding: 2.6rem 2.4rem 3rem;
+    display: flex;
+    align-items: center;
+    gap: 2.2rem;
+    border-radius: 20px;
+    box-shadow: 0 16px 45px rgba(58, 103, 216, 0.25);
+    max-width: 720px;
+    position: relative;
+  }
+  #profile img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    filter: drop-shadow(0 6px 8px rgba(58, 103, 216, 0.4));
+    flex-shrink: 0;
+  }
+  #profile .profile-info {
+    flex: 1;
+  }
+  #profile .profile-info h2 {
+    font-family: 'Devansh Singh', cursive;
+    font-size: 2.6rem;
+    margin: 0 0 0.3rem;
+    color: #3a67d8;
+    letter-spacing: 0.04em;
+    font-weight: 700;
+  }
+  #profile .profile-info h3 {
+    font-size: 1.25rem;
+    margin: 0 0 1rem;
+    font-weight: 600;
+    color: #2c4db0;
+    letter-spacing: 0.04em;
+  }
+  #profile .profile-info p {
+    font-size: 1.1rem;
+    margin: 0;
+    color: #44577b;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+  #profile .view-resume-btn {
+    display: inline-block;
+    margin-top: 1.6rem;
+    background-color: #3a67d8;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 0.9rem 2rem;
+    border-radius: 40px;
+    text-transform: uppercase;
+    box-shadow: 0 8px 20px rgba(58, 103, 216, 0.6);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.35s ease, box-shadow 0.35s ease;
+    text-decoration: none;
+  }
+  #profile .view-resume-btn:hover,
+  #profile .view-resume-btn:focus {
+    background-color: #2548a1;
+    box-shadow: 0 12px 28px rgba(37, 72, 161, 0.8);
+    outline: none;
+  }
+
+  /* Social Links Section */
+  #social-links {
+    max-width: 720px;
+    margin: -1rem auto 3rem auto;
+    display: flex;
+    justify-content: center;
+    gap: 3.5rem;
+  }
+  #social-links a {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #3a67d8;
+    background: white;
+    padding: 0.7rem 1.4rem;
+    border-radius: 36px;
+    box-shadow: 0 10px 30px rgba(58, 103, 216, 0.28);
+    text-decoration: none;
+    transition: background-color 0.35s ease, color 0.35s ease;
+  }
+  #social-links a svg {
+    width: 24px;
+    height: 24px;
+    fill: #3a67d8;
+    transition: fill 0.35s ease;
+  }
+  #social-links a:hover,
+  #social-links a:focus {
+    background-color: #2548a1;
+    color: white;
+    outline: none;
+  }
+  #social-links a:hover svg,
+  #social-links a:focus svg {
+    fill: white;
+  }
+
+  /* Section Titles */
+  h2.section-title {
+    font-family: 'Devansh Singh', cursive;
+    font-size: 2.6rem;
+    margin: 3.8rem 0 1.8rem;
+    color: #3a67d8;
+    border-bottom: 3px solid #2c4db0;
+    display: inline-block;
+    padding-bottom: 0.3rem;
+  }
+
+  /* About */
+  #about {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem 2.6rem;
+    box-shadow: 0 14px 42px rgba(58, 103, 216, 0.15);
+    color: #44577b;
+  }
+  #about p {
+    font-size: 1.17rem;
+    margin: 0 auto;
+    max-width: 720px;
+    line-height: 1.5;
+  }
+
+  /* Skills */
+  #skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 1.3rem;
+  }
+  .skill {
+    background: #bdd1ff;
+    color: #2548a1;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.45rem 1.3rem;
+    border-radius: 30px;
+    box-shadow: 0 6px 18px rgba(58, 103, 216, 0.35);
+    transition: background-color 0.3s ease;
+    user-select: none;
+  }
+  .skill:hover {
+    background-color: #3a67d8;
+    color: white;
+    cursor: default;
+  }
+
+  /* Projects */
+  #projects {
+    color: #44577b;
+  }
+  .project-item {
+    background: white;
+    margin-bottom: 2.5rem;
+    padding: 1.7rem 2.6rem;
+    border-radius: 18px;
+    box-shadow: 0 9px 38px rgba(58, 103, 216, 0.15);
+    transition: box-shadow 0.4s ease;
+  }
+  .project-item:hover {
+    box-shadow: 0 12px 48px rgba(58, 103, 216, 0.28);
+  }
+  .project-title {
+    font-size: 1.55rem;
+    margin-bottom: 0.6rem;
+    font-weight: 700;
+    color: #3a67d8;
+  }
+  .project-description {
+    font-weight: 500;
+    font-size: 1.05rem;
+    margin-bottom: 0.8rem;
+  }
+  .project-links a {
+    font-weight: 700;
+    margin-right: 1.3rem;
+    color: #2c4db0;
+    transition: color 0.3s ease;
+  }
+  .project-links a:hover {
+    color: #3a67d8;
+  }
+
+  /* Certifications */
+  #certifications ul {
+    list-style: none;
+    padding-left: 0;
+    color: #44577b;
+  }
+  #certifications li {
+    background: white;
+    border-radius: 16px;
+    padding: 1.2rem 1.8rem;
+    margin-bottom: 1.6rem;
+    box-shadow: 0 12px 38px rgba(58, 103, 216, 0.12);
+  }
+  #certifications li h3 {
+    margin: 0 0 0.3rem;
+    color: #3a67d8;
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+  #certifications li h4 {
+    margin: 0 0 0.4rem;
+    font-weight: 600;
+    color: #2c4db0;
+  }
+  #certifications li time {
+    display: block;
+    font-style: italic;
+    color: #627cb7;
+    margin-bottom: 0.6rem;
+  }
+  #certifications li p {
+    margin: 0;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #415284;
+  }
+
+  /* Contact */
+  #contact {
+    background: white;
+    border-radius: 20px;
+    padding: 3rem 3rem 3.4rem;
+    box-shadow: 0 18px 46px rgba(58, 103, 216, 0.21);
+    max-width: 540px;
+    margin: 3rem auto 4rem;
+    color: #44577b;
+  }
+  #contact form {
+    display: flex;
+    flex-direction: column;
+  }
+  #contact label {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    color: #3a67d8;
+  }
+  #contact input,
+  #contact textarea {
+    font-size: 1.05rem;
+    font-weight: 500;
+    padding: 0.9rem 1.4rem;
+    margin-bottom: 1.3rem;
+    border-radius: 10px;
+    border: 2px solid #bdd1ff;
+    transition: border-color 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+  }
+  #contact input:focus,
+  #contact textarea:focus {
+    border-color: #3a67d8;
+    outline: none;
+  }
+  #contact button {
+    background: #3a67d8;
+    border: none;
+    padding: 1.1rem 2rem;
+    color: white;
+    font-weight: 800;
+    font-family: 'Devansh Singh', cursive;
+    font-size: 1.3rem;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(58, 103, 216, 0.6);
+    transition: background-color 0.4s ease;
+    text-transform: uppercase;
+  }
+  #contact button:hover,
+  #contact button:focus {
+    background: #2548a1;
+    box-shadow: 0 15px 38px rgba(37, 72, 161, 0.85);
+    outline: none;
+  }
+  #formMessage {
+    margin-top: 0.6rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  /* Footer */
+  footer {
+    background: #2548a1;
+    text-align: center;
+    padding: 3rem 1rem;
+    color: #d3dbff;
+    font-family: 'Devansh Singh', cursive;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+  footer a {
+    color: #d3dbff;
+    margin: 0 1rem;
+    font-size: 1.8rem;
+    transition: color 0.3s ease;
+    text-decoration: none;
+  }
+  footer a:hover,
+  footer a:focus {
+    color: white;
+    outline: none;
+  }
+  footer small {
+    display: block;
+    margin-top: 1rem;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  /* Chatbot Styles */
+  #chatbot-toggle {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #3a67d8;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(58, 103, 216, 0.6);
+    font-size: 28px;
+    z-index: 1001;
+    transition: background-color 0.3s ease;
+  }
+  #chatbot-toggle:hover,
+  #chatbot-toggle:focus {
+    background-color: #2548a1;
+    outline: none;
+  }
+
+  #chatbot {
+    position: fixed;
+    bottom: 90px;
+    right: 25px;
+    width: 320px;
+    max-height: 420px;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 12px 36px rgba(58, 103, 216, 0.4);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #222;
+    z-index: 1000;
+    transform: translateY(110%);
+    opacity: 0;
+    transition: all 0.3s ease-out;
+  }
+  #chatbot.open {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  #chatbot-header {
+    background-color: #3a67d8;
+    color: white;
+    padding: 12px 18px;
+    font-weight: 700;
+    font-size: 18px;
+  }
+  #chatbot-messages {
+    flex: 1;
+    padding: 12px 18px;
+    overflow-y: auto;
+    background: #f0f4ff;
+  }
+  .chatbot-message {
+    margin-bottom: 12px;
+    padding: 8px 12px;
+    border-radius: 18px;
+    max-width: 85%;
+    clear: both;
+  }
+  .chatbot-message.user {
+    background: #3a67d8;
+    color: white;
+    float: right;
+    text-align: right;
+    font-weight: 600;
+  }
+  .chatbot-message.bot {
+    background: #c9d7ff;
+    color: #2548a1;
+    float: left;
+  }
+  #chatbot-input-area {
+    display: flex;
+    border-top: 1px solid #c6d7ff;
+  }
+  #chatbot-input {
+    flex: 1;
+    border: none;
+    padding: 12px 16px;
+    font-size: 1rem;
+    border-radius: 0 0 0 18px;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+  }
+  #chatbot-send-btn {
+    background: #3a67d8;
+    border: none;
+    color: white;
+    padding: 0 18px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 0 0 18px 0;
+    transition: background-color 0.3s ease;
+  }
+  #chatbot-send-btn:hover,
+  #chatbot-send-btn:focus {
+    background: #2548a1;
+    outline: none;
+  }
+
+  /* Responsive */
+  @media (max-width: 670px) {
+    #profile {
+      flex-direction: column;
+      text-align: center;
+      margin: -48px auto 2rem;
+      padding-bottom: 1.8rem;
+    }
+    #profile img {
+      margin-bottom: 1.4rem;
+      width: 140px;
+      height: 140px;
+      filter: drop-shadow(0 5px 7px rgba(58, 103, 216, 0.38));
+    }
+    #profile .profile-info h2 {
+      font-size: 2rem;
+      line-height: 1.1;
+    }
+    #profile .profile-info h3,
+    #profile .profile-info p {
+      font-size: 1.05rem;
+    }
+    #profile .view-resume-btn {
+      margin-top: 1.4rem;
+      padding: 0.75rem 2.1rem;
+      font-size: 1rem;
+      border-radius: 32px;
+    }
+    #social-links {
+      gap: 2.5rem;
+    }
+    .container {
+      width: 95%;
+      padding: 0 0.5rem 2rem;
+    }
+    .skill {
+      font-size: 0.95rem;
+      padding: 0.3rem 1rem;
+      margin: 0.25rem 0.8rem;
+    }
+    #chatbot {
+      width: 90vw;
+      max-height: 60vh;
+      bottom: 90px;
+      right: 5vw;
+    }
+  }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+<header>
+  <h1>Devansh Singh </h1>
+  <p>Crafting Seamless Digital Experiences</p>
+</header>
+
+<section id="profile" aria-label="Profile">
+  <img src=Devansh.img.jpg alt=" Devansh Singh" />
+  <div class="profile-info">
+    <h2>Devansh Singh</h2>
+    <h3>Python Developer & Data Analyst </h3>
+    <p>Over 2 years Experience with many project and participating hackhathons that engage user and delivery results </p>
+    <a href=https://drive.google.com/file/d/1ABna7iVzPYsGLxZoQldejdCsu8Wl-Frf/view?usp=drive_link target="_blank" rel="noopener" class="view-resume-btn" aria-label="View Devansh Singh Resume">View Resume</a>
+  </div>
+</section>
+
+<section id="social-links" aria-label="Social Media Links">
+  <a href=https://www.linkedin.com/in/devansh-singh-a3411b249/ target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" tabindex="0">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.329-.475-2.236-1.661-2.236-0.905 0-1.445.607-1.683 1.195-0.086.21-0.108.5-0.108.791v5.819h-3.554s.047-9.449 0-10.426h3.554v1.48c.472-.729 1.316-1.77 3.201-1.77 2.337 0 4.085 1.53 4.085 4.82v5.895zM5.337 8.433a2.06 2.06 0 11.003-4.119 2.06 2.06 0 01-.003 4.119zM6.611 20.452H3.06v-10.426h3.55v10.426zM22.225 0H1.771C.789 0 0 .774 0 1.729v20.542C0 23.223.789 24 1.771 24h20.451c.984 0 1.778-.776 1.778-1.729V1.729C24 .773 23.209 0 22.225 0z"/>
+    </svg>
+    LinkedIn
+  </a>
+  <a href=https://github.com/Devansh8774 target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" tabindex="0">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.799 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.383-1.333-1.75-1.333-1.75-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.232 1.84 1.232 1.07 1.835 2.807 1.305 3.492.997.108-.775.418-1.305.76-1.605-2.665-.3-5.466-1.335-5.466-5.93 0-1.31.47-2.38 1.236-3.22-.123-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.5 11.5 0 016.003 0c2.292-1.553 3.299-1.23 3.299-1.23.655 1.653.242 2.873.12 3.176.77.84 1.235 1.91 1.235 3.22 0 4.61-2.804 5.628-5.475 5.923.43.372.815 1.102.815 2.222v3.293c0 .32.218.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+    </svg>
+    GitHub
+  </a>
+</section>
+
+<div class="container">
+  <section id="about" aria-label="About Me">
+    <h2 class="section-title">About Me</h2>
+    <p>Hi, I’m Devansh Singh, a passionate BCA student with a keen interest in data analytics. I thrive on turning raw data into actionable insights and leveraging technology to solve complex problems. With a solid foundation in programming and statistical analysis, I am eager to contribute to innovative projects and make a meaningful impact in the field of analytics.</p>
+  </section>
+
+  <section id="skills" aria-label="Skills">
+    <h2 class="section-title">Skills</h2>
+    <div>
+      <span class="skill" tabindex="0">HTML</span>
+      <span class="skill" tabindex="0">Data Science</span>
+      <span class="skill" tabindex="0">Python</span>
+      <span class="skill" tabindex="0">C language </span>
+      <span class="skill" tabindex="0">linux</span>
+      <span class="skill" tabindex="0">Power BI</span>
+      <span class="skill" tabindex="0">SQL</span>
+      <span class="skill" tabindex="0">Machine Learning</span>
+      <span class="skill" tabindex="0">Deep Learning</span>
+      <span class="skill" tabindex="0">ChatGpt</span>
+      <span class="skill" tabindex="0">DSA In C</span>
+      <span class="skill" tabindex="0">NO SQL</span>
+
+    </div>
+  </section>
+
+  <section id="projects" aria-label="Projects">
+    <h2 class="section-title">Projects</h2>
+    <article class="project-item" tabindex="0">
+      <h3 class="project-title">Smart CCTV Camera </h3>
+      <p class="project-description">Developed a Python-based SMART CCTV system to
+detect motion and noise in specific areas of a room.
+Implemented real-time monitoring, continuous video
+recording, and motion detection using OpenCV and
+audio processing libraries. Designed a system to
+capture and save images of objects entering and exiting
+the room into respective "In" and "Out" folders.
+Demonstrated proficiency in Python programming,
+computer vision, audio processing, and file
+management systems to enhance security and
+automation.</p>
+      <div class="project-links">
+        <a href=https://github.com/Devansh8774/SMART-CCTV-CAMERA target="_blank" rel="noopener noreferrer">GitHub</a>
+        
+      </div>
+    </article>
+    <article class="project-item" tabindex="0">
+      <h3 class="project-title">Cricket Match Prediction </h3>
+      <p class="project-description">Developed a machine learning model to predict cricket
+match outcomes using historical data. Applied data
+preprocessing, feature engineering, and algorithms like
+Random Forest and Logistic Regression. Evaluated
+model performance using key metrics and visualized
+insights with Python libraries. Demonstrated strong
+data analytics and predictive modeling skills.</p>
+      <div class="project-links">
+        <a href=https://github.com/Devansh8774/Cricket-match-prediction target="_blank" rel="noopener noreferrer">GitHub</a>
+        
+      </div>
+    </article>
+    <article class="project-item" tabindex="0">
+      <h3 class="project-title">Olympic Data Analysis</h3>
+      <p class="project-description">Designed interactive dashboards in Power BI to
+
+visualize athlete performance, medal tallies, and event-
+wise statistics.
+
+•Implemented data cleaning, transformation, and
+aggregation techniques to ensure accuracy and
+consistency of insights.
+•Highlighted country-wise trends, gender
+representation, and sport-specific achievements
+through engaging visual storytelling.
+•Demonstrated strong proficiency in data analytics,
+visualization, and decision-making through
+actionable insights.</p>
+      <div class="project-links">
+        <a href=https://github.com/Devansh8774/Olympic-Data-Analysis target="_blank" rel="noopener noreferrer">GitHub</a>
+        
+      </div>
+    </article>
+  </section>
+
+  <section id="certifications" aria-label="Certifications">
+    <h2 class="section-title">Certifications</h2>
+    <ul>
+      <li tabindex="0">
+        <h3>Data Science Foundation level 01</h3>
+        <h4>IBM</h4>
+        
+        <p>The IBM Data Science Professional Certificate is a beginner-friendly program designed to equip learners with foundational skills in data science and analytics. Offered through platforms like Coursera, this certification includes practical and theoretical components to help individuals start their journey in data science.</p>
+      </li>
+      <li tabindex="0">
+        <h3>IBM Cognos Analytics Administrator V11</h3>
+        <h4>IBM</h4>
+       
+        <p>Experienced in managing and maintaining IBM Cognos Analytics environments to ensure seamless data reporting and business intelligence operations</p>
+      </li>
+        <li tabindex="0">
+        <h3>Data Science (DS0101EN)</h3>
+        <h4>IBM</h4>
+       
+        <p>Completed the IBM course "Data Science 101", gaining foundational knowledge and practical insights into the field of data science.</p>
+      </li>
+        <li tabindex="0">
+        <h3>Mobile Application Development</h3>
+        <h4>BBDU</h4>
+        
+        <p>Skilled in designing, developing, and deploying mobile applications across platforms with a focus on user-friendly and efficient functionality.</p>
+      </li>
+      <li tabindex="0">
+        <h3>NoSQL and DBaas 101 (DB0151EN)</h3>
+        <h4>IBM</h4>
+        
+        <p>Completed the IBM course "NoSQL and DBaaS 101", focusing on modern database technologies and cloud-based database management</p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="education" aria-label="Education">
+    <h2 class="section-title">Education</h2>
+    <ul>
+      <li tabindex="0" style="background: white; border-radius:16px; padding:1.4rem 2rem; margin-bottom:1.5rem; box-shadow: 0 12px 38px rgba(58, 103, 216, 0.12); color: #44577b;">
+        <h3>Bachelor of Computer Application </h3>
+        <h4>Babu Banarsi Das University</h4>
+        <time>2023 - 2026</time>
+        <p>Qualifying all semester more than 8.5
+SGPA of marks . And enjoying extra
+ciricular activity by participating and
+learn team work.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="contact" aria-label="Contact Me">
+    <h2 class="section-title">Contact Me</h2>
+    <form id="contactForm" novalidate>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your full name" required />
+      
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required />
+      
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+      
+      <button type="submit">Send Message</button>
+      <p id="pls enter a valid mail " role="alert" style="color: #3a67d8; margin-top:0.5rem;"></p>
+    </form>
+  </section>
+</div>
+
+<footer>
+  <a href=https://github.com/Devansh8774 target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub</a>|
+  <a href=https://www.linkedin.com/in/devansh-singh-a3411b249/ target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>|
+  <a href="mailto:singhdevansh795@gmail.com aria-label="Email>Email</a>
+  <small>Devansh Singh. All rights reserved.</small>
+</footer>
+
+<!-- Chatbot Button -->
+<button id="chatbot-toggle" aria-label="Toggle chatme.ai Chatbot" title="Chat with chatme.ai!">💬</button>
+
+<!-- Chatbot Window -->
+<div id="chatbot" role="dialog" aria-live="polite" aria-label="chatme.ai Chatbot window">
+  <div id="chatbot-header">Chat with chatme.ai</div>
+  <div id="chatbot-messages" tabindex="0" aria-live="polite" aria-relevant="additions"></div>
+  <div id="chatbot-input-area">
+    <input type="text" id="chatbot-input" aria-label="Type your message here" placeholder="Type a message..." autocomplete="off" />
+    <button id="chatbot-send-btn" aria-label="Send message">➤</button>
+  </div>
+</div>
+
+<script>
+  // Contact form handling
+  const form = document.getElementById('contactForm');
+  const formMessage = document.getElementById('formMessage');
+
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+
+    formMessage.textContent = '';
+    formMessage.style.color = '#3a67d8';
+
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
+
+    if (!name || !email || !message) {
+      formMessage.textContent = 'Please fill in all fields.';
+      return;
+    }
+
+    const emailPattern = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+    if (!emailPattern.test(email)) {
+      formMessage.textContent = 'Please enter a valid email address.';
+      return;
+    }
+
+    formMessage.style.color = 'green';
+    formMessage.textContent = 'Thanks for contacting me! I will get back to you shortly.';
+
+    form.reset();
+
+    setTimeout(() => {
+      formMessage.textContent = '';
+      formMessage.style.color = '#3a67d8';
+    }, 5000);
+  });
+
+  // Chatbot functionality
+  const chatbotToggle = document.getElementById('chatbot-toggle');
+  const chatbot = document.getElementById('chatbot');
+  const chatbotMessages = document.getElementById('chatbot-messages');
+  const chatbotInput = document.getElementById('chatbot-input');
+  const chatbotSendBtn = document.getElementById('chatbot-send-btn');
+
+  chatbotToggle.addEventListener('click', () => {
+    chatbot.classList.toggle('open');
+    if(chatbot.classList.contains('open')){
+      chatbotInput.focus();
+    }
+  });
+
+  function appendMessage(content, sender) {
+    const msg = document.createElement('div');
+    msg.classList.add('chatbot-message', sender);
+    msg.textContent = content;
+    chatbotMessages.appendChild(msg);
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+  }
+
+  function getBotResponse(input) {
+    input = input.toLowerCase();
+    if(input.includes('hello') || input.includes('hi')){
+      return 'Hello! How can I help you today?';
+    }
+    if(input.includes('projects')){
+      return 'You can check out my projects section for details on my work.';
+    }
+    if(input.includes('skills')){
+      return 'I am skilled in HTML, CSS, PowerBI,Python, Vue, and more!';
+    }
+    if(input.includes('resume')){
+      return 'Feel free to download my resume using the "View Resume" button above.';
+    }
+    if(input.includes('contact')){
+      return 'You can use the contact form below to send me a message.';
+    }
+    return 'Sorry, I didn\'t understand that. You can ask about my projects, skills, or how to contact me.';
+  }
+
+  function sendMessage() {
+    const userInput = chatbotInput.value.trim();
+    if(userInput === '') return;
+
+    appendMessage(userInput, 'user');
+    chatbotInput.value = '';
+    setTimeout(() => {
+      const botReply = getBotResponse(userInput);
+      appendMessage(botReply, 'bot');
+    }, 800);
+  }
+
+  chatbotSendBtn.addEventListener('click', sendMessage);
+
+  chatbotInput.addEventListener('keypress', e => {
+    if(e.key === 'Enter') {
+      e.preventDefault();
+      sendMessage();
+    }
+  });
+</script>
+</body>
+</html>
+
